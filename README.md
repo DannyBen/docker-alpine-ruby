@@ -1,4 +1,4 @@
-Alpine Ruby Docker
+Docker Alpine Ruby Image
 ==================================================
 
 
