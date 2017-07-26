@@ -1,0 +1,22 @@
+title   "Docker Utilities"
+summary "Utilities for building the docker image"
+version "0.0.1"
+
+image_name = 'dannyben/alpine-ruby'
+
+command "docker"
+
+help   "Build the docker image"
+action :build do
+  run! "docker build -t #{image_name} ."
+end
+
+action :bash do
+  run! "docker run -it #{image_name} bash"
+end
+
+action :push do
+  run! "docker push #{image_name}"
+end
+
+endcommand
