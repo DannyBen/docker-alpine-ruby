@@ -17,8 +17,8 @@ $ docker run --rm dannyben/alpine-ruby gem env
 
 ---
 
-[View on Docker Hub][1]
-[View on GitHub][2]
+- [View on Docker Hub][1]
+- [View on GitHub][2]
 
 [1]: https://hub.docker.com/r/dannyben/alpine-ruby/
 [2]: https://github.com/DannyBen/docker-alpine-ruby
