@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  bash:
+    build: .
+    image: dannyben/alpine-ruby
+
+  irb:
+    image: dannyben/alpine-ruby
+    command: irb
