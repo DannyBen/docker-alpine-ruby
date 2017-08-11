@@ -1,7 +1,7 @@
 FROM alpine
 
 ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base
-ENV RUBY_PACKAGES ruby ruby-io-console ruby-irb
+ENV RUBY_PACKAGES ruby ruby-io-console ruby-irb libffi-dev
 ENV TERM=linux
 ENV PS1 "\n\ndocker:ruby \W \$ "
 
