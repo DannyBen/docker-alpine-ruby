@@ -3,7 +3,7 @@ FROM alpine
 ENV BUILD_PACKAGES bash curl curl-dev ruby-dev build-base
 ENV RUBY_PACKAGES ruby ruby-io-console ruby-irb libffi-dev zlib-dev
 ENV TERM=linux
-ENV PS1 "\n\ndocker:ruby \W \$ "
+ENV PS1 "\n\n>> ruby \W \$ "
 
 RUN apk --no-cache add $BUILD_PACKAGES $RUBY_PACKAGES
 
