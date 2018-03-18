@@ -4,9 +4,8 @@ Docker Alpine Ruby Image
 This is the smallest possible Ruby docker image, with ability to 
 build native extension gems.
 
-This image is available in several alpine and ruby versions.
-
-See [available tags][3]
+This image is available in several alpine and ruby versions. See 
+[available tags][3].
 
 ```
 
