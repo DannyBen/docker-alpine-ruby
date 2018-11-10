@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 ENV BUILD_PACKAGES bash curl curl-dev ruby-dev build-base
-ENV RUBY_PACKAGES ruby ruby-io-console ruby-irb ruby-json libffi-dev zlib-dev ruby-bigdecimal
+ENV RUBY_PACKAGES ruby ruby-io-console ruby-irb ruby-json ruby-etc libffi-dev zlib-dev ruby-bigdecimal
 ENV TERM=linux
 ENV PS1 "\n\n>> ruby \W \$ "
 
