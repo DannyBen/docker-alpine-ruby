@@ -1,0 +1,19 @@
+name: Test
+on:
+  pull_request:
+  push: { branches: master }
+
+jobs:
+  test:
+    name: Verify build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build docker images
+      run: docker-compose build
+
+    - name: Verify ruby version
+      run: docker-compose run version | grep 2.6.5

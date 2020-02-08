@@ -7,8 +7,7 @@ build native extension gems.
 This image is available in several alpine and ruby versions. See 
 [available tags][3].
 
-```
-
+```shell
 # Start bash
 $ docker run -it --rm dannyben/alpine-ruby
 
@@ -17,7 +16,6 @@ $ docker run -it --rm dannyben/alpine-ruby irb
 
 # Show gem environment
 $ docker run --rm dannyben/alpine-ruby gem env
-
 ```
 
 ---
