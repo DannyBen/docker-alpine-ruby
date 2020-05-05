@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:20200428
 
 ENV BUILD_PACKAGES bash curl curl-dev ruby-dev build-base
 ENV RUBY_PACKAGES \
