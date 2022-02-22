@@ -1,0 +1,35 @@
+title   "Ruby Alpine Docker Toolbelt"
+
+command :docker
+
+alpine_version = "3.15"
+ruby_version = "3.0.3"
+
+help   "Build the docker images"
+action :build, :b do
+  system "docker build -t dannyben/alpine-ruby ."
+  system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
+  system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:ruby#{ruby_version}"
+  system "docker images |grep dannyben/alpine-ruby"
+end
+
+help   "Smoke test the docker image"
+action :test, :t do
+  docker_ruby_version = `docker run --rm dannyben/alpine-ruby ruby --version`.chomp
+  if ! docker_ruby_version.include? "ruby #{ruby_version}"
+    puts "FAIL: docker ruby version is #{docker_ruby_version}, expected #{ruby_version}"
+    exit 1
+  else
+    puts "PASS: docker madness version is #{ruby_version}"
+  end
+end
+
+help   "Push the docker images to Docker Hub"
+action :push, :p do
+  system "docker push dannyben/alpine-ruby"
+  system "docker push dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
+  system "docker push dannyben/alpine-ruby:ruby#{ruby_version}"
+end
+
+endcommand
+

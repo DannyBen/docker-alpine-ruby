@@ -11,4 +11,5 @@ services:
 
   version:
     image: dannyben/alpine-ruby
-    command: bash -c "printf 'Alpine  ' && cat /etc/alpine-release && printf 'Ruby    ' && ruby --version"
+    command: |
+      bash -c "printf 'Alpine : ' && cat /etc/alpine-release && printf 'Ruby   : ' && ruby --version"
