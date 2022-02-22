@@ -10,6 +10,7 @@ action :build, :b do
   system "docker build -t dannyben/alpine-ruby ."
   system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
   system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:ruby#{ruby_version}"
+  system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:#{ruby_version}"
   system "docker images |grep dannyben/alpine-ruby"
 end
 
@@ -29,6 +30,7 @@ action :push, :p do
   system "docker push dannyben/alpine-ruby"
   system "docker push dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
   system "docker push dannyben/alpine-ruby:ruby#{ruby_version}"
+  system "docker push dannyben/alpine-ruby:#{ruby_version}"
 end
 
 endcommand
