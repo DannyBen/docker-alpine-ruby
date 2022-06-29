@@ -1,5 +1,4 @@
-Docker Alpine Ruby Image
-==================================================
+# Docker Alpine Ruby Image
 
 This is the smallest possible Ruby docker image, with ability to 
 build native extension gems.

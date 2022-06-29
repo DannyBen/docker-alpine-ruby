@@ -2,8 +2,8 @@ title   "Ruby Alpine Docker Toolbelt"
 
 command :docker
 
-alpine_version = "3.15"
-ruby_version = "3.0.3"
+alpine_version = "3.16"
+ruby_version = "3.1.2"
 
 help   "Build the docker images"
 action :build, :b do
@@ -21,7 +21,7 @@ action :test, :t do
     puts "FAIL: docker ruby version is #{docker_ruby_version}, expected #{ruby_version}"
     exit 1
   else
-    puts "PASS: docker madness version is #{ruby_version}"
+    puts "PASS: docker ruby version is #{ruby_version}"
   end
 end
 
