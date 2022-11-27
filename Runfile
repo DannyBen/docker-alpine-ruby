@@ -1,9 +1,19 @@
 title   "Ruby Alpine Docker Toolbelt"
 
-command :docker
-
-alpine_version = "3.16"
+alpine_version = "3.17"
 ruby_version = "3.1.2"
+
+command :git
+
+help   "Add git tags for the current build"
+action :tag, :t do
+  system "git tag -f alpine#{alpine_version}-ruby#{ruby_version}"
+  system "git tag -f ruby#{ruby_version}"
+  system "git tag -f #{ruby_version}"
+  system "git tag --sort v:refname | grep #{ruby_version}"
+end
+
+command :docker
 
 help   "Build the docker images"
 action :build, :b do
