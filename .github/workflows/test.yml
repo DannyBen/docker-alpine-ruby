@@ -16,4 +16,4 @@ jobs:
       run: docker-compose build
 
     - name: Verify ruby version
-      run: docker-compose run version | grep 3.1.2
+      run: docker-compose run version | grep 3.1.3
