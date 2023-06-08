@@ -1,22 +1,18 @@
 title   "Ruby Alpine Docker Toolbelt"
 
-alpine_version = "3.17"
-ruby_version = "3.1.3"
-
-command :git
+alpine_version = "3.18"
+ruby_version = "3.2.2"
 
 help   "Add git tags for the current build"
-action :tag, :t do
+action 'git-tag' do
   system "git tag -f alpine#{alpine_version}-ruby#{ruby_version}"
   system "git tag -f ruby#{ruby_version}"
   system "git tag -f #{ruby_version}"
   system "git tag --sort v:refname | grep #{ruby_version}"
 end
 
-command :docker
-
 help   "Build the docker images"
-action :build, :b do
+action 'docker-build' do
   system "docker build -t dannyben/alpine-ruby ."
   system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
   system "docker tag dannyben/alpine-ruby dannyben/alpine-ruby:ruby#{ruby_version}"
@@ -25,23 +21,20 @@ action :build, :b do
 end
 
 help   "Smoke test the docker image"
-action :test, :t do
+action 'docker-test' do
   docker_ruby_version = `docker run --rm dannyben/alpine-ruby ruby --version`.chomp
   if ! docker_ruby_version.include? "ruby #{ruby_version}"
-    puts "FAIL: docker ruby version is #{docker_ruby_version}, expected #{ruby_version}"
+    say "r`FAIL: docker ruby version is #{docker_ruby_version}, expected #{ruby_version}`"
     exit 1
   else
-    puts "PASS: docker ruby version is #{ruby_version}"
+    say "g`PASS: docker ruby version is #{ruby_version}`"
   end
 end
 
 help   "Push the docker images to Docker Hub"
-action :push, :p do
+action 'docker-push' do
   system "docker push dannyben/alpine-ruby"
   system "docker push dannyben/alpine-ruby:alpine#{alpine_version}-ruby#{ruby_version}"
   system "docker push dannyben/alpine-ruby:ruby#{ruby_version}"
   system "docker push dannyben/alpine-ruby:#{ruby_version}"
 end
-
-endcommand
-
