@@ -1,6 +1,6 @@
 title   "Ruby Alpine Docker Toolbelt"
 
-alpine_version = "3.18"
+alpine_version = "3.19"
 ruby_version = "3.2.2"
 
 help   "Add git tags for the current build"

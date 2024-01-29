@@ -1,10 +1,10 @@
-FROM alpine:3.18
+FROM alpine:3.19
 
 ENV BUILD_PACKAGES bash curl curl-dev ruby-dev build-base
 ENV RUBY_PACKAGES \
   ruby ruby-io-console ruby-irb \
   ruby-json ruby-etc ruby-bigdecimal ruby-rdoc \
-  libffi-dev zlib-dev
+  libffi-dev zlib-dev yaml-dev
 ENV TERM=linux
 ENV PS1 "\n\n>> ruby \W \$ "
 
