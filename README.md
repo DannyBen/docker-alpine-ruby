@@ -17,6 +17,18 @@ $ docker run -it --rm dannyben/alpine-ruby irb
 $ docker run --rm dannyben/alpine-ruby gem env
 ```
 
+## Development
+
+Use the docker-compose to build and test:
+
+```bash
+$ docker compose build
+$ docker compose run --rm version
+```
+
+Image is built using GitHub Actions by pushing a ruby version tag in the form
+of `3.1.0` **without `v` as prefix**, or via manual dispatch.
+
 ---
 
 - [View on Docker Hub][1]
