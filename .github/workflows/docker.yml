@@ -20,9 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extract tag
+      - name: Set tag from ref
         if: github.event_name == 'push'
-        run: echo "TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        run: echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
 
       - name: Set tag from input
         if: github.event_name == 'workflow_dispatch'
