@@ -1,17 +1,18 @@
-FROM alpine:3.23
+FROM ruby:3.4-alpine
 
-ENV BUILD_PACKAGES bash curl curl-dev ruby-dev build-base
-ENV RUBY_PACKAGES \
-  ruby ruby-bigdecimal ruby-rdoc \
-  libffi-dev zlib-dev yaml-dev
 ENV TERM=linux
-ENV PS1 "\n\n>> ruby \W \$ "
+ENV PS1="\n\n>> ruby \W \$ "
 
-RUN apk --no-cache add $BUILD_PACKAGES $RUBY_PACKAGES
+RUN apk add --no-cache \
+  bash \
+  curl \
+  build-base \
+  libffi-dev \
+  zlib-dev \
+  yaml-dev
 
 RUN echo 'gem: --no-document' > /etc/gemrc && \
-    gem install bundler
+    gem install bundler && \
+    bundle config --global silence_root_warning 1
 
-RUN bundle config --global silence_root_warning 1
-
-CMD bash
+CMD ["bash"]

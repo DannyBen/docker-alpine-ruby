@@ -1,7 +1,9 @@
 name: Test
 on:
   pull_request:
-  push: { branches: master }
+  push: 
+    branches:
+    - master
 
 jobs:
   test:
@@ -10,10 +12,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Build docker images
-      run: docker compose build
+      run: docker compose build --pull
 
     - name: Verify ruby version
-      run: docker compose run version | grep 3.4.7
+      run:
+        docker compose run --rm version ruby -v | grep -E '^ruby 3\.4\.[0-9]+\b'
