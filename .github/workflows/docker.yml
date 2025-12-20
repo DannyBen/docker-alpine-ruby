@@ -6,10 +6,11 @@ on:
       tag:
         description: Tag to build
         required: true
-        default: '3.1.0'
+        default: '3.4'
 
   push:
     tags:
+      - '[0-9]+.[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
