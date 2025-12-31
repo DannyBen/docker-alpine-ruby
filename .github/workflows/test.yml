@@ -19,4 +19,4 @@ jobs:
 
     - name: Verify ruby version
       run:
-        docker compose run --rm version ruby -v | grep -E '^ruby 3\.4\.[0-9]+\b'
+        docker compose run --rm version ruby -v | grep -E '^ruby 4\.0\.[0-9]+\b'
